@@ -16,9 +16,9 @@ class EditWikiPage extends React.Component {
       <div>
         <h1>Edit {this.props.params.title}</h1>
         <div>
-          <input type="text" placeholder="Title"/><br/>
-          <textarea rows="10"></textarea><br/>
-          <button>Save</button>
+          <input onChange={(event)=>this.props.changeState(event.target.value, 'title')} value={this.props.title} type="text" placeholder="Title"/><br/>
+          <textarea onChange={(event)=>this.props.changeState(event.target.value, 'content')} rows="10"></textarea><br/>
+          <button onClick={() => this.props.savePage(this.props.params.title, this.props.content)}>Save</button>
         </div>
       </div>
     );
